@@ -2,3 +2,7 @@ main div p{
     display: flex;
     justify-content: space-between;
 }
+main a{
+    display: flex;
+    text-align: right;
+}
