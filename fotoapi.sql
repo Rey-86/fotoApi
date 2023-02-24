@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-02-2023 a las 16:58:22
+-- Tiempo de generación: 24-02-2023 a las 17:39:11
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `fotoapi`
 --
+CREATE DATABASE IF NOT EXISTS `fotoapi` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
+USE `fotoapi`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `fotos`
 --
 
+DROP TABLE IF EXISTS `fotos`;
 CREATE TABLE `fotos` (
   `idfoto` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
@@ -41,6 +44,7 @@ CREATE TABLE `fotos` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `idusuario` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
@@ -54,6 +58,7 @@ CREATE TABLE `usuarios` (
 -- Estructura de tabla para la tabla `votos`
 --
 
+DROP TABLE IF EXISTS `votos`;
 CREATE TABLE `votos` (
   `idusuario` int(11) NOT NULL,
   `idfoto` int(11) NOT NULL
