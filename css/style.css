@@ -1,8 +1,20 @@
+#borde{
+    background-color: lightsteelblue;
+}
+
 main div p{
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 main a{
     display: flex;
     text-align: right;
+}
+
+#votar{
+    display: flex;
+    padding-top: 2px;
+    position: absolute;
+    right: 25px;
 }
