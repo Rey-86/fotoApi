@@ -1,3 +1,10 @@
+<?php
+//Verificação com o botão Login
+if(isset($_POST['btn-primary'])):
+    echo "Clicou";
+endif;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +19,7 @@
 
 <body>
     <div class="container col-md-6 col-sm-12">
-        <form action="" method="post">
+        <form action="index.php" method="post">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">
@@ -22,7 +29,7 @@
                 <input class="form-control col-md-6 col-sm-12" type="text" name="password" id="password">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <button type="submit" name="btn-primary">Entrar</button>
             </div>
             <div class="form-group col-md-6 col-sm-12">
                 <p>Si todavía no estás registrado pulse <a href="registrarse.html">aquí</a>: </p>

@@ -1,15 +1,12 @@
 <?php
+//inclusão com o
+
+
 $fotos=array(
-    array('id'=> 1,'archivo'=>'mecanicareloj.jpg'),
-    array('id'=> 2,'archivo'=>'perro.jpg'),
-    array('id'=> 3,'archivo'=>'img3.jpg'),
-    array('id'=> 4,'archivo'=>'img4.jpg'),
-    array('id'=> 5,'archivo'=>'img5.jpg'),
-    array('id'=> 6,'arcgivo'=>'img6.jpg'),
-    array('id'=> 7,'archivo'=>'img7.jpg'),
-    array('id'=> 8,'archivo'=>'img8.jpg'),
-    array('id'=> 9,'archivo'=>'img9.jpg'),
-    array('id'=>10,'archivo'=>'img10.jpg'),
+    array('idfoto'=> 1,'archivo'=>'mecanicareloj.jpg','titulo'=>'Foto reloj',),
+    array('id'=> 2,'archivo'=>'perro.jpg')
+    
+    
 
 );
 $contenido="";
@@ -24,14 +21,8 @@ for ($i=0; $i < count($fotos); $i++) {
 
 </div>';
 }
-$votação="";
-for ($i=0; $i < count($likes); $i++);
-    $like=$likes[$i];
-    $votação.=
-
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +42,47 @@ for ($i=0; $i < count($likes); $i++);
 <main class="container col-md-6 col-sm-12">
     <a href="login.html">Login</a>
     <a href="registrarse.html">Registrarse</a>
-    <?=$contenido?>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img/mecanicareloj.jpg">
+        <p>Autor<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img/perro.jpg">
+        <p>Autor<i class="fa-regular fa-thumbs-up"></i></p>
+        
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img3.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img4.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img5.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img6.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img7.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img8.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img9.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
+    <div class="img-thumbnail">
+        <img class="img-fluid" src="img10.jpg">
+        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
+    </div>
 </main>
 
 <body>
