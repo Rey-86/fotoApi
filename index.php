@@ -1,7 +1,16 @@
 <?php
 $fotos=array(
     array('id'=> 1,'archivo'=>'mecanicareloj.jpg'),
-    array('id'=> 2,'archivo'=>'reloj.jpg')
+    array('id'=> 2,'archivo'=>'perro.jpg'),
+    array('id'=> 3,'archivo'=>'img3.jpg'),
+    array('id'=> 4,'archivo'=>'img4.jpg'),
+    array('id'=> 5,'archivo'=>'img5.jpg'),
+    array('id'=> 6,'arcgivo'=>'img6.jpg'),
+    array('id'=> 7,'archivo'=>'img7.jpg'),
+    array('id'=> 8,'archivo'=>'img8.jpg'),
+    array('id'=> 9,'archivo'=>'img9.jpg'),
+    array('id'=>10,'archivo'=>'img10.jpg'),
+
 );
 $contenido="";
 for ($i=0; $i < count($fotos); $i++) { 
