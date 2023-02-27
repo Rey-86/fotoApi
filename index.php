@@ -24,6 +24,11 @@ for ($i=0; $i < count($fotos); $i++) {
 
 </div>';
 }
+$votação="";
+for ($i=0; $i < count($likes); $i++);
+    $like=$likes[$i];
+    $votação.=
+
 
 ?>
 
