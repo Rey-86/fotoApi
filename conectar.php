@@ -10,19 +10,18 @@
         $this->conn=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
     }
     function login($username,$pass){
+        $listaUsuarios=array();
         $consulta="select * from usuarios where nombre=? and password=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ss",$username,$pass);
         $stm->execute();
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
-            return true;
-        }else{
-            return false;
-        }
-
-
+            return $resultado->fetch_assoc();
+       }
+       return $listaUsuarios;  
     }
+
     function registrar($nombre,$pass,$email){
         $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
         $stm=$this->conn->prepare($consulta);
@@ -76,7 +75,5 @@
         }
     }
    }
-   
-
    
   ?>
