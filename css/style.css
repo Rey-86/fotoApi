@@ -2,9 +2,11 @@
     background-color: lightsteelblue;
 }
 
-main div p{
-    display: flex;
-    justify-content: space-between;
+.img-thumbnail{
+    width: 300px;
+    position: relative;
+    left: 40%;
+
     position: relative;
 }
 main a{

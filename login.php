@@ -1,3 +1,26 @@
+<?php
+//Verificação com o botão Login
+if(isset($_POST['btn-primary'])):
+    require_once('conectar.php');
+    $usuario=$_POST['usuario'];
+    $pass=$_POST['password'];
+    $datos=new Datos();
+    if($datos->login($usuario,$pass)){
+    //Iniciar session
+    session_start();
+
+        header('Location: index.php');
+
+        exit();
+    }else{
+        //Mostrar mensaje de error
+        $msj='Usuario o contraseña incorrecta';
+     
+    }
+
+endif;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,33 +29,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Foto-Api</title>
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
-<body class="login">
+<body>
     <div class="container col-md-6 col-sm-12">
-        <br>
-        <form  action="" method="post">
+        <form action="subirfoto.php" method="post">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">
             </div>
-            <br>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="password" id="password">
             </div>
-            <br>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <button type="submit" name="btn-primary">Entrar</button>
             </div>
-            <br>
             <div class="form-group col-md-6 col-sm-12">
-                <p class="p">Si todavía no está registrado pulse <a href="registrarse.html">aquí</a>: </p>
+                <p>Si todavía no estás registrado pulse <a href="registrarse.html">aquí</a>: </p>
         </form>
+        <?php if(isset($msj)) echo $msj; ?>
     </div>
 </body>
-
-</html>
