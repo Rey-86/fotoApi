@@ -29,6 +29,7 @@ endif;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Foto-Api</title>
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -48,7 +49,7 @@ endif;
                 <button type="submit" name="btn-primary">Entrar</button>
             </div>
             <div class="form-group col-md-6 col-sm-12">
-                <p>Si todavía no estás registrado pulse <a href="registrarse.html">aquí</a>: </p>
+                <p>Si todavía no está registrado pulse <a href="registrarse.html">aquí</a>: </p>
         </form>
         <?php if(isset($msj)) echo $msj; ?>
     </div>

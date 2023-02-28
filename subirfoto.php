@@ -17,7 +17,7 @@
   <label for="conteudo">Enviar imagem:</label>
   <input type="file" name="pic" accept="image/*" class="form-control">
 
-  <div align="center">
+  <div>
     <button type="submit" class="btn btn-success">Enviar imagem</button>
   </div>
 </form>
@@ -33,7 +33,14 @@
     move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
     
  } 
+ if (isset($_SESSION))
+ {
+    $titulo = $_POST["titulo"];
+    $archivo = $_POST["archivo"];
+    $idusuario = $_POST["idusuario"];
 
+    
+ }
  
  ?>
  
