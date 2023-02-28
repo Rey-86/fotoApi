@@ -46,15 +46,25 @@
     }
 
     function subirFoto($titulo,$archivo,$idusuario){
-        $consulta="insert into fotos (titulo,archivo,idusuario) values (?,?,?)";
+        $consulta="select * from fotos where titulo=? and archivo=?";
         $stm=$this->conn->prepare($consulta);
-        $stm->bind_param("ssi",$titulo,$archivo,$idusuario);
+        $stm->bind_param("ss",$titulo,$archivo);
         $stm->execute();
-       
-        if($stm->affected_rows>0){
-            return true;
-        }else{
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "Esa foto está repetida";
             return false;
+       }else{
+            $consulta="insert into fotos (titulo,archivo,idusuario) values (?,?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("ssi",$titulo,$archivo,$idusuario);
+            $stm->execute();
+        
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 
@@ -73,7 +83,7 @@
     }
 
     function votar($idusuario,$idfoto){
-        $consulta="select * from votos where idusuario=? and idfoto=?";
+        $consulta="select * from fotos where idusuario=? and idfoto=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ii",$idusuario,$idfoto);
         $stm->execute();
@@ -95,4 +105,10 @@
        }
     }
    }
+   
+   //Para Probar
+   $dato=new Datos();
+   $listaUsuarios=$dato->subirFoto('mujer','mujer.jpg','10');
+   var_dump($listaUsuarios);
+   
   ?>
