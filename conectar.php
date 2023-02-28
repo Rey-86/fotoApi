@@ -70,7 +70,7 @@
 
     function listaFotos(){
         $fotos=array();
-        $consulta="SELECT F.*,U.nombre FROM `fotos` as F INNER JOIN usuarios as U on F.idusuario=U.idusuario; ";
+        $consulta="SELECT F.*,U.nombre,COUNT(V.idfoto) as votos FROM `fotos` as F INNER JOIN usuarios as U on F.idusuario=U.idusuario LEFT JOIN votos as V on V.idfoto=F.idfoto GROUP by V.idfoto;";
         $stm=$this->conn->prepare($consulta);
         $stm->execute();
         $resultado=$stm->get_result();
