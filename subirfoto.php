@@ -39,6 +39,9 @@
     $archivo = $_POST["archivo"];
     $idusuario = $_POST["idusuario"];
 
+    require_once("conectar.php");
+   subirFoto($titulo, $archivo, $idusuario);
+
     
  }
  
