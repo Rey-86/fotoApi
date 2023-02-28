@@ -10,42 +10,61 @@
         $this->conn=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
     }
     function login($username,$pass){
+        $listaUsuarios=array();
         $consulta="select * from usuarios where nombre=? and password=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ss",$username,$pass);
         $stm->execute();
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
-            return true;
-        }else{
-            return false;
-        }
-
-
+            return $resultado->fetch_assoc();
+       }
+       return $listaUsuarios;  
     }
+
     function registrar($nombre,$pass,$email){
-        $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
+        $consulta="select * from usuarios where nombre=?";
         $stm=$this->conn->prepare($consulta);
-        $stm->bind_param("sss",$nombre,$email,$pass);
+        $stm->bind_param("s",$nombre);
         $stm->execute();
-       
-        if($stm->affected_rows>0){
-            return true;
-        }else{
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "El usuario ya existe";
             return false;
-        }
+       }else{
+            $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("sss",$nombre,$email,$pass);
+            $stm->execute();
+        
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
+       }
     }
 
     function subirFoto($titulo,$archivo,$idusuario){
-        $consulta="insert into fotos (titulo,archivo,idusuario) values (?,?,?)";
+        $consulta="select * from fotos where titulo=? and archivo=?";
         $stm=$this->conn->prepare($consulta);
-        $stm->bind_param("ssi",$titulo,$archivo,$idusuario);
+        $stm->bind_param("ss",$titulo,$archivo);
         $stm->execute();
-       
-        if($stm->affected_rows>0){
-            return true;
-        }else{
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "Esa foto está repetida";
             return false;
+       }else{
+            $consulta="insert into fotos (titulo,archivo,idusuario) values (?,?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("ssi",$titulo,$archivo,$idusuario);
+            $stm->execute();
+        
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 
@@ -62,6 +81,28 @@
        }
        return $fotos;
     }
+
+    function votar($idusuario,$idfoto){
+        $consulta="select * from fotos where idusuario=? and idfoto=?";
+        $stm=$this->conn->prepare($consulta);
+        $stm->bind_param("ii",$idusuario,$idfoto);
+        $stm->execute();
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "El usuario no puede volver a votar esa foto";
+            return false;
+       }else{
+            $fotos=array();
+            $consulta="insert into votos (idusuario,idfoto) values (?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("ii",$idusuario,$idfoto);
+            $stm->execute();
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
+       }
+    }
    }
-   
   ?>
