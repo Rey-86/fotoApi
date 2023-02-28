@@ -30,6 +30,7 @@
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
             echo "El usuario ya existe";
+            return false;
        }else{
             $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
             $stm=$this->conn->prepare($consulta);
@@ -71,23 +72,27 @@
        return $fotos;
     }
 
-    function Votar($idusuario,$idfoto){
-        $fotos=array();
-        $consulta="insert into votos (idusuario,idfoto) values (?,?)";
+    function votar($idusuario,$idfoto){
+        $consulta="select * from votos where idusuario=? and idfoto=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ii",$idusuario,$idfoto);
         $stm->execute();
-        if($stm->affected_rows>0){
-            return true;
-        }else{
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "El usuario no puede volver a votar esa foto";
             return false;
-        }
+       }else{
+            $fotos=array();
+            $consulta="insert into votos (idusuario,idfoto) values (?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("ii",$idusuario,$idfoto);
+            $stm->execute();
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
+       }
     }
    }
-   
-   //Para Probar
-   $dato=new Datos();
-   $listaUsuarios=$dato->registrar("Luis",'luis@dge.com','1234');
-   var_dump($listaUsuarios);
-   
   ?>
