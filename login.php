@@ -1,7 +1,22 @@
 <?php
 //Verificação com o botão Login
 if(isset($_POST['btn-primary'])):
-    echo "Clicou";
+    require_once('conectar.php');
+    $usuario=$_POST['usuario'];
+    $servername=$_POST['localhost'];
+    $pass=$_POST['password'];
+    $datos=new Datos();
+    if($datos->login($usuario,$pass)){
+    //Iniciar session
+        header('location:index.php');
+
+        exit();
+    }else{
+        //Mostrar mensaje de error
+        header('location:login.php');
+     
+    }
+
 endif;
 ?>
 
@@ -19,7 +34,7 @@ endif;
 
 <body>
     <div class="container col-md-6 col-sm-12">
-        <form action="index.php" method="post">
+        <form action="" method="post">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">
@@ -34,6 +49,7 @@ endif;
             <div class="form-group col-md-6 col-sm-12">
                 <p>Si todavía no estás registrado pulse <a href="registrarse.html">aquí</a>: </p>
         </form>
+        <?php if(isset($msj)) echo $msj; ?>
     </div>
 </body>
 

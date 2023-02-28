@@ -1,9 +1,7 @@
 <?php
-//inclusão com o
-
 
 $fotos=array(
-    array('idfoto'=> 1,'archivo'=>'mecanicareloj.jpg','titulo'=>'Foto reloj',),
+    array('idfoto'=> 1,'archivo'=>'mecanicareloj.jpg','fecha'=>'',),
     array('id'=> 2,'archivo'=>'perro.jpg')
     
     
@@ -21,6 +19,7 @@ for ($i=0; $i < count($fotos); $i++) {
 
 </div>';
 }
+    
 
 ?>
 <!DOCTYPE html>
@@ -39,53 +38,24 @@ for ($i=0; $i < count($fotos); $i++) {
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<main class="container col-md-6 col-sm-12">
-    <a href="login.html">Login</a>
-    <a href="registrarse.html">Registrarse</a>
+
+<body>
+
+<main>
+
     <div class="img-thumbnail">
         <img class="img-fluid" src="img/mecanicareloj.jpg">
-        <p>Autor<i class="fa-regular fa-thumbs-up"></i></p>
+        <p>Autor:<i class="fa-regular fa-thumbs-up"style="position:relative;left:80%;cursor:pointer;"></i></p>
     </div>
     <div class="img-thumbnail">
         <img class="img-fluid" src="img/perro.jpg">
-        <p>Autor<i class="fa-regular fa-thumbs-up"></i></p>
-        
+        <p>Autor:<i class="fa-regular fa-thumbs-up" style="position:relative;left:80%;cursor:pointer;"></i></p>
+    </div>"></i></p>
     </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img3.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img4.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img5.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img6.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img7.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img8.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img9.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
-    <div class="img-thumbnail">
-        <img class="img-fluid" src="img10.jpg">
-        <p>Autor:<i class="fa-regular fa-thumbs-up"></i></p>
-    </div>
+    
 </main>
 
-<body>
+
 
 </body>
 

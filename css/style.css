@@ -1,8 +1,6 @@
-main div p{
-    display: flex;
-    justify-content: space-between;
-}
-main a{
-    display: flex;
-    text-align: right;
+.img-thumbnail{
+    width: 300px;
+    position: relative;
+    left: 40%;
+
 }

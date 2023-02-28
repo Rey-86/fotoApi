@@ -32,7 +32,10 @@
  
     move_uploaded_file($_FILES['pic']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
     
- } ?>
+ } 
+
+ 
+ ?>
  
  </div>
 <body>
