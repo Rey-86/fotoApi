@@ -105,10 +105,4 @@
        }
     }
    }
-   
-   //Para Probar
-   $dato=new Datos();
-   $listaUsuarios=$dato->subirFoto('mujer','mujer.jpg','10');
-   var_dump($listaUsuarios);
-   
   ?>
