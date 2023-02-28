@@ -15,10 +15,10 @@
 
 <form method="POST" enctype="multipart/form-data" action="index.php">
   <label for="conteudo">Enviar imagem:</label>
-  <input type="file" name="pic" accept="image/*" class="form-control">
+  <input type="file" name="pic" accept="image/*" class="form-control" style="width:30%;">
 
-  <div align="center">
-    <button type="submit" class="btn btn-success">Enviar imagem</button>
+  <div align="center"><br>
+    <button type="submit" class="btn btn-success" style="position:relative;right:45%;">Enviar imagem</button>
   </div>
 </form>
  
