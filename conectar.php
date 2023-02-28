@@ -62,6 +62,21 @@
        }
        return $fotos;
     }
+
+    function Votar($idusuario,$idfoto){
+        $fotos=array();
+        $consulta="insert into votos (idusuario,idfoto) values (?,?)";
+        $stm=$this->conn->prepare($consulta);
+        $stm->bind_param("ii",$idusuario,$idfoto);
+        $stm->execute();
+        if($stm->affected_rows>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
    }
+   
+
    
   ?>
