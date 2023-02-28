@@ -3,17 +3,18 @@
 if(isset($_POST['btn-primary'])):
     require_once('conectar.php');
     $usuario=$_POST['usuario'];
-    $servername=$_POST['localhost'];
     $pass=$_POST['password'];
     $datos=new Datos();
     if($datos->login($usuario,$pass)){
     //Iniciar session
-        header('location:index.php');
+    session_start();
+
+        header('Location: index.php');
 
         exit();
     }else{
         //Mostrar mensaje de error
-        header('location:login.php');
+        $msj='Usuario o contraseña incorrecta';
      
     }
 
@@ -34,7 +35,7 @@ endif;
 
 <body>
     <div class="container col-md-6 col-sm-12">
-        <form action="" method="post">
+        <form action="subirfoto.php" method="post">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">

@@ -1,12 +1,9 @@
 <?php
-
-$fotos=array(
-    array('idfoto'=> 1,'archivo'=>'mecanicareloj.jpg','fecha'=>'',),
-    array('id'=> 2,'archivo'=>'perro.jpg')
-    
+require_once('conectar.php');
+$datos=new Datos();
+$fotos=$datos->listaFotos();
     
 
-);
 $contenido="";
 for ($i=0; $i < count($fotos); $i++) { 
     $foto=$fotos[$i];

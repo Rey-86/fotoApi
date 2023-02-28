@@ -13,7 +13,7 @@
 <div class="container">
 <h2><strong>Envio de imagens</strong></h2><hr>
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" action="index.php">
   <label for="conteudo">Enviar imagem:</label>
   <input type="file" name="pic" accept="image/*" class="form-control">
 

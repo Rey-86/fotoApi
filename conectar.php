@@ -49,7 +49,19 @@
         }
     }
 
-
+    function listaFotos(){
+        $fotos=array();
+        $consulta="SELECT F.*,U.nombre FROM `fotos` as F INNER JOIN usuarios as U on F.idusuario=U.idusuario; ";
+        $stm=$this->conn->prepare($consulta);
+        $stm->execute();
+        $resultado=$stm->get_result();
+       if($resultado->num_rows>0){
+            while($registro=$resultado->fetch_assoc()){
+                array_push($fotos,$registro);
+            }  
+       }
+       return $fotos;
+    }
    }
-
- ?>
+   
+  ?>
