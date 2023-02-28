@@ -23,16 +23,25 @@
     }
 
     function registrar($nombre,$pass,$email){
-        $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
+        $consulta="select * from usuarios where nombre=?";
         $stm=$this->conn->prepare($consulta);
-        $stm->bind_param("sss",$nombre,$email,$pass);
+        $stm->bind_param("s",$nombre);
         $stm->execute();
-       
-        if($stm->affected_rows>0){
-            return true;
-        }else{
-            return false;
-        }
+        $resultado=$stm->get_result();
+        if($resultado->num_rows>0){
+            echo "El usuario ya existe";
+       }else{
+            $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
+            $stm=$this->conn->prepare($consulta);
+            $stm->bind_param("sss",$nombre,$email,$pass);
+            $stm->execute();
+        
+            if($stm->affected_rows>0){
+                return true;
+            }else{
+                return false;
+            }
+       }
     }
 
     function subirFoto($titulo,$archivo,$idusuario){
@@ -75,5 +84,10 @@
         }
     }
    }
+   
+   //Para Probar
+   $dato=new Datos();
+   $listaUsuarios=$dato->registrar("Luis",'luis@dge.com','1234');
+   var_dump($listaUsuarios);
    
   ?>
