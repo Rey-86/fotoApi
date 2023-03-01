@@ -3,4 +3,12 @@
     position: relative;
     left: 40%;
 
+#borde{
+    background-color: lightsteelblue;
+}
+
+main div p{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
