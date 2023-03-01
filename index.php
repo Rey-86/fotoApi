@@ -47,7 +47,7 @@ for ($i=0; $i < count($fotos); $i++) {
 <body>
 
 <main>
-<a href="login.php" name="sair" class="sair">Sair</a>
+<a href="logout.php" name="sair" class="sair">Sair</a>
     <div class="img-thumbnail">
         <img class="img-fluid" src="img/mecanicareloj.jpg">
         <p>Autor:<i class="fa-regular fa-thumbs-up"style="position:relative;left:80%;cursor:pointer;"></i></p>
