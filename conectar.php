@@ -10,16 +10,15 @@
         $this->conn=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
     }
     function login($username,$pass){
-        $listaUsuarios=array();
+ 
         $consulta="select * from usuarios where nombre=? and password=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ss",$username,$pass);
         $stm->execute();
         $resultado=$stm->get_result();
-        if($resultado->num_rows>0){
-            return $resultado->fetch_assoc();
-       }
-       return $listaUsuarios;  
+        return $resultado->fetch_assoc();
+
+
     }
 
     function registrar($nombre,$pass,$email){
