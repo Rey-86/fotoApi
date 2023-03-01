@@ -1,14 +1,43 @@
+#borde{
+    background-color: lightsteelblue;
+}
+
 .img-thumbnail{
     width: 300px;
     position: relative;
     left: 40%;
 
-#borde{
-    background-color: lightsteelblue;
+    position: relative;
+}
+main a{
+    display: flex;
+    text-align: right;
 }
 
-main div p{
+#votar{
     display: flex;
-    justify-content: space-between;
-    position: relative;
+    padding-top: 2px;
+    position: absolute;
+    right: 25px;
+}
+.login{ 
+    width: 100%;
+    background-color: lightsteelblue;
+    background-image: url("../img/collage.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 75%;
+    background-attachment: fixed;
+}
+.p{
+    background-color: white;
+}
+.sign{
+    width: 100%;
+    background-color: lightsteelblue;
+    background-image: url("../img/polaroid.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 75%;
+    background-attachment: fixed;
 }

@@ -1,25 +1,62 @@
 <?php
+//Conexão co base de dados
+require_once('conectar.php');
+
+//Iniciar Sessão
+session_start();
+
+//Verificação dos dados
+if (isset($_POST['btn-entrar'])) :
+    $erros = array();
+    $login = mysqli_escape_string($connect, $_POST['login']);
+    $senha = mysqli_escape_string($connect, $_POST['senha']);
+
+    if (empty($login) or empty($senha)) :
+        $erros[] = "<li> Os campos Login e Senha precisam ser preenchidos</li>";
+    else :
+        $sql = "SELECT login FROM usuarios WHERE login = '$login'";
+        $resultado = mysqli_query($connect, $sql);
+
+        if (mysqli_num_rows($resultado) > 0) :
+            $senha = md5($senha);
+            $sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'";
+            $resultado = mysqli_query($connect, $sql);
+
+            if (mysqli_num_rows($resultado) == 1) :
+                $dados = mysqli_fetch_array($resultado);
+                mysqli_close($connect);
+                $_SESSION['logado'] = true;
+                $_SESSION['id_usuario'] = $dados['id'];
+                header('location: home.php');
+            else :
+                $erros[] = "<li> Usuario e senha não conferem </li>";
+            endif;
+        else :
+            $erros[] = "<li> Usuario inexistente</li>";
+
+
+        endif;
+
+endif;
+endif;
+
+
+
 //Verificação com o botão Login
 if(isset($_POST['btn-primary'])):
     require_once('conectar.php');
     $usuario=$_POST['usuario'];
     $pass=$_POST['password'];
     $datos=new Datos();
-    if($datos->login($usuario,$pass)){
+    if($datos->login($usuario,$pass))
     
-        //Iniciar session
-        session_start();
+        
 
         header('Location: subirfoto.php');
 
         exit();
-    }else{
-        //Mostrar mensaje de error
-        $msj='Usuario o contraseña incorrecta';
-     
-    }
-
 endif;
+
 ?>
 
 <!DOCTYPE html>
