@@ -1,3 +1,22 @@
+<?php
+
+if(isset($_POST['btn-primary'])){
+    require_once('conectar.php');
+    $usuario=$_POST['usuario'];
+    $email = $_POST['email'];
+    $pass=$_POST['password'];
+    $datos=new Datos();
+    if($datos->login($usuario,$pass)){
+
+ header('Location: login.php');
+
+        exit();
+}
+    
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +31,15 @@
 <body class="sign">
     <div class="container col-md-6 col-sm-12">
         <br>
-        <form action="" method="post">
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label for="usuario">Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="usuario">Email</label>
+                <input class="form-control col-md-6 col-sm-12" type="email" name="email" id="email">
             </div>
             <br>
             <div class="form-group">

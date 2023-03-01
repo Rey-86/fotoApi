@@ -37,19 +37,17 @@
     <h2><strong>Envio de imagens</strong></h2>
     <hr>
 
-    <form method="POST" enctype="multipart/form-data" action="">
-      <label for="conteudo">Enviar imagem:</label>
-      <input type="file" name="pic" accept="image/*" class="form-control">
-      <input type="text" name="titulo" class="form-control" placeholder="Título de la foto">
-      <div>
-        <button type="submit" class="btn btn-success">Enviar imagem</button>
-      </div>
-    </form>
+<form method="POST" enctype="multipart/form-data" action="index.php">
+  <label for="conteudo">Enviar imagem:</label>
+  <input type="file" name="pic" accept="image/*" class="form-control">
 
-    <hr>
-    
+  <div align="center">
+    <button type="submit" class="btn btn-success">Enviar imagem</button>
   </div>
-
+</form>
+ 
+ <hr>
+ 
 </body>
 
 </html>
