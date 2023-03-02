@@ -50,7 +50,7 @@ header('Location: index.php');
                 <button class="btn btn-success" type="submit" name="btn-primary" class="button">Entrar</button>
             </div><br>
             <div class="form-group col-md-6 col-sm-12">
-                <p>Si todavía no está registrado pulse <a href="registro.php">aqui:</a></p>
+                <p class="p">Si todavía no está registrado pulse <a href="registro.php">aqui:</a></p>
         </form>
         <?php if(isset($msj)) echo $msj; ?>
     </div>
