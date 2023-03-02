@@ -27,7 +27,7 @@
         $stm->execute();
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
-            echo "El usuario ya existe";
+            //echo "El usuario ya existe";
             return false;
        }else{
             $consulta="insert into usuarios (nombre,email,password) values (?,?,?)";
@@ -50,7 +50,7 @@
         $stm->execute();
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
-            echo "Esa foto está repetida";
+            //echo "Esa foto está repetida";
             return false;
        }else{
             $consulta="insert into fotos (titulo,archivo,idusuario) values (?,?,?)";
@@ -68,7 +68,7 @@
 
     function listaFotos(){
         $fotos=array();
-        $consulta="SELECT F.*,U.nombre,COUNT(V.idfoto) as votos FROM `fotos` as F INNER JOIN usuarios as U on F.idusuario=U.idusuario LEFT JOIN votos as V on V.idfoto=F.idfoto GROUP by V.idfoto;";
+        $consulta="SELECT F.*,U.nombre,COUNT(V.idfoto) as votos FROM `fotos` as F INNER JOIN usuarios as U on F.idusuario=U.idusuario LEFT JOIN votos as V on V.idfoto=F.idfoto GROUP by F.idfoto;";
         $stm=$this->conn->prepare($consulta);
         $stm->execute();
         $resultado=$stm->get_result();
@@ -87,7 +87,7 @@
         $stm->execute();
         $resultado=$stm->get_result();
         if($resultado->num_rows>0){
-            echo "El usuario no puede volver a votar esa foto";
+            //echo "El usuario no puede volver a votar esa foto";
             return false;
        }else{
             $fotos=array();
@@ -105,10 +105,10 @@
    }
 
       //Para probar
-      /*
-      $datos=new Datos();
-      $fotos=$datos->login("jesu","1234");
-      var_dump($fotos);
-      */
+      
+      //$datos=new Datos();
+      //$fotos=$datos->listaFotos();
+      //var_dump($fotos);
+    
 
   ?>
