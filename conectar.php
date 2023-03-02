@@ -81,7 +81,7 @@
     }
 
     function votar($idusuario,$idfoto){
-        $consulta="select * from fotos where idusuario=? and idfoto=?";
+        $consulta="select * from votos where idusuario=? and idfoto=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ii",$idusuario,$idfoto);
         $stm->execute();
@@ -107,7 +107,7 @@
       //Para probar
       
       //$datos=new Datos();
-      //$fotos=$datos->listaFotos();
+      //$fotos=$datos->votar(17,"8");
       //var_dump($fotos);
     
 
