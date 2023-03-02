@@ -12,7 +12,6 @@
 
     //Devuelve NULL si no existe el usuario y un array con los datos del usuario si existe
     function login($username,$pass){
-        $listaUsuarios=array();
         $consulta="select * from usuarios where nombre=? and password=?";
         $stm=$this->conn->prepare($consulta);
         $stm->bind_param("ss",$username,$pass);
