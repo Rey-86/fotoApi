@@ -35,9 +35,9 @@ header('Location: index.php');
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="login">
     <div class="container col-md-6 col-sm-12">
-        <form class="login" action="" method="post">
+        <form  action="" method="post">
             <div class="form-group">
                 <label for="usuario" class="label" >Usuario</label>
                 <input class="form-control col-md-6 col-sm-12" type="text" name="usuario" id="usuario">
